@@ -1,6 +1,6 @@
 import { Box } from 'Box';
-import { ContactItem, ContactText } from './ContactList.styled';
 import PropTypes from 'prop-types';
+import { ContactItem } from 'components/ContactItem.jsx/ContactItem';
 
 export const ContactList = ({ contacts, deleteContact }) => {
   return (
@@ -8,13 +8,13 @@ export const ContactList = ({ contacts, deleteContact }) => {
       {contacts.map(el => {
         const { id, name, number } = el;
         return (
-          <ContactItem key={id}>
-            <ContactText>{name}: </ContactText>
-            <ContactText>{number}</ContactText>
-            <button type="button" onClick={() => deleteContact(id)}>
-              Delete
-            </button>
-          </ContactItem>
+          <ContactItem
+            key={id}
+            id={id}
+            name={name}
+            number={number}
+            deleteContact={deleteContact}
+          />
         );
       })}
     </Box>

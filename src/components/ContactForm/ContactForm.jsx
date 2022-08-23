@@ -13,6 +13,10 @@ export class ContactForm extends Component {
     ...INITIAL_STATE,
   };
 
+  static propTypes = {
+    addContact: PropTypes.func.isRequired,
+  };
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -64,6 +68,3 @@ export class ContactForm extends Component {
   }
 }
 
-ContactForm.propTypes = {
-  addContact: PropTypes.func,
-};
